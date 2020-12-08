@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.github.clem10101998.androidkotlin4a.R
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
@@ -15,14 +16,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    //Login Button
+        mainViewModel.loginLiveData.observe(this, Observer {
+            when(it){
+                //Popup
+                is LoginSuccess -> {
 
-        main_button.setOnClickListener{
-            mainViewModel.onClickedIncrement("")
-        }
-        mainViewModel.counter.observe(this, Observer {
-                value -> main_text.text = value.toString()
-
+                }
+                //Error
+                LoginError -> {
+                    MaterialAlertDialogBuilder(this)
+                        .setTitle("Erreur")
+                        .setMessage("Compte inconnu")
+                        .setPositiveButton("OK") { dialog, which ->
+                            dialog.dismiss()
+                        }
+                        .show()
+                }
+            }
         })
-        //mainViewModel.onStart()
+        login_button.setOnClickListener{
+            mainViewModel.onClickedLogin(login_edit.text.toString().trim(), password_edit.text.toString())
+        }
     }
 }
