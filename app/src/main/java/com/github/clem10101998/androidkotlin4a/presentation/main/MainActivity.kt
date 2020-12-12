@@ -2,6 +2,7 @@ package com.github.clem10101998.androidkotlin4a.presentation.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.github.clem10101998.androidkotlin4a.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -37,6 +38,13 @@ class MainActivity : AppCompatActivity() {
         })
         login_button.setOnClickListener{
             mainViewModel.onClickedLogin(login_edit.text.toString().trim(), password_edit.text.toString())
+            /*if (login_edit.text.toString().trim().isEmpty()){
+                login_edit.error = "Email required"
+                Toast.makeText(applicationContext, "Please enter your email", Toast.LENGTH_SHORT).show()
+            }else if(password_edit.text.toString().trim().isEmpty()){
+                password_edit.error = "Password required"
+                Toast.makeText(applicationContext, "Please enter your password", Toast.LENGTH_SHORT).show()
+            }*/
         }
     }
 }
