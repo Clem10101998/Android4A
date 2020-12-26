@@ -73,4 +73,15 @@
         android:text="SignUp"
         />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AnimeList"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/login_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
