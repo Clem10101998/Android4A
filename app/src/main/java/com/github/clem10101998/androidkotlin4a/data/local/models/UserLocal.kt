@@ -5,9 +5,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.github.clem10101998.androidkotlin4a.domain.entity.User
 
-@Entity
+@Entity(tableName = "userlocal")
 data class UserLocal(
     @ColumnInfo(name = "email") val email: String
+
 ){
     @PrimaryKey(autoGenerate = true) var uid: Int? = null
 }

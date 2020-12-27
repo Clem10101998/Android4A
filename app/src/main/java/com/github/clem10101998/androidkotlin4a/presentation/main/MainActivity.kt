@@ -39,18 +39,19 @@ class MainActivity : AppCompatActivity() {
         })*/
         login_button.setOnClickListener{
             mainViewModel.onClickedLogin(login_edit.text.toString().trim(), password_edit.text.toString())
-            if (login_edit.text.toString().trim().isEmpty()){
+           /* if (login_edit.text.toString().trim().isEmpty()){
                 login_edit.error = "Email required"
                 Toast.makeText(applicationContext, "Please enter your email", Toast.LENGTH_SHORT).show()
             }else if(password_edit.text.toString().trim().isEmpty()){
                 password_edit.error = "Password required"
                 Toast.makeText(applicationContext, "Please enter your password", Toast.LENGTH_SHORT).show()
-            }
+            }*/
             val intent = Intent(this, DataActivity::class.java)
             startActivity(intent)
         }
         create_account_button.setOnClickListener{
-
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 }

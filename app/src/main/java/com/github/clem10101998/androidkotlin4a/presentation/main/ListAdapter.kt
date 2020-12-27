@@ -8,12 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.clem10101998.androidkotlin4a.R
 import kotlinx.android.synthetic.main.row_layout.view.*
 
-class ListAdapter(private val values: List<String>) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+class ListAdapter(private val values: List<Donnees>) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         //val View: View = itemView.icon
-        val txtHeader: TextView = itemView.firstLine
-        val txtFooter: TextView = itemView.secondLine
+
+
+            val txtHeader: TextView = itemView.firstLine
+            val txtFooter: TextView = itemView.secondLine
 
     }
 
@@ -25,8 +27,8 @@ class ListAdapter(private val values: List<String>) : RecyclerView.Adapter<ListA
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val name = values[position]
 
-        holder.txtHeader.text = name
-        holder.txtFooter.text = "Footer: " +name
+        holder.txtHeader.text = "Movie's title: " +name.title
+        holder.txtFooter.text = "Producer: " +name.producer
 
     }
 
