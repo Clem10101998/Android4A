@@ -19,39 +19,44 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     //Login Button
-        /*mainViewModel.loginLiveData.observe(this, Observer {
+        mainViewModel.loginLiveData.observe(this, Observer {
             when(it){
                 //Popup
                 is LoginSuccess -> {
-
+                    MaterialAlertDialogBuilder(this)
+                        .setMessage("Known account")
+                        .show()
+                    val intent = Intent(this, DataActivity::class.java)
+                    startActivity(intent)
                 }
                 //Error
                 LoginError -> {
                     MaterialAlertDialogBuilder(this)
-                        .setTitle("Erreur")
-                        .setMessage("Compte inconnu")
+                        .setTitle("Error")
+                        .setMessage("Unknown account, please create you account")
                         .setPositiveButton("OK") { dialog, which ->
                             dialog.dismiss()
                         }
                         .show()
+
                 }
             }
-        })*/
+        })
         login_button.setOnClickListener{
             mainViewModel.onClickedLogin(login_edit.text.toString().trim(), password_edit.text.toString())
-           /* if (login_edit.text.toString().trim().isEmpty()){
+           /*if (login_edit.text.toString().trim().isEmpty()){
                 login_edit.error = "Email required"
                 Toast.makeText(applicationContext, "Please enter your email", Toast.LENGTH_SHORT).show()
             }else if(password_edit.text.toString().trim().isEmpty()){
                 password_edit.error = "Password required"
                 Toast.makeText(applicationContext, "Please enter your password", Toast.LENGTH_SHORT).show()
             }*/
-            val intent = Intent(this, DataActivity::class.java)
-            startActivity(intent)
+           // val intent = Intent(this, DataActivity::class.java)
+            //            //startActivity(intent)
         }
         create_account_button.setOnClickListener{
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            mainViewModel.OnClickedCreate(login_edit.text.toString().trim(), password_edit.text.toString())
+            Toast.makeText(applicationContext, "Account well created", Toast.LENGTH_SHORT).show()
         }
     }
 }

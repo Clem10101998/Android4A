@@ -47,7 +47,7 @@ class DataActivity : AppCompatActivity() {
         api.AllMovies().enqueue(object : Callback<List<Donnees>>{
             override fun onResponse(call: Call<List<Donnees>>, response: Response<List<Donnees>>) {
                 showList(response.body()!!)
-                //Toast.makeText(getApplicationContext(), "API Success", Toast.LENGTH_SHORT).show()
+                Toast.makeText(getApplicationContext(), "API Success", Toast.LENGTH_SHORT).show()
             }
             override fun onFailure(call: Call<List<Donnees>>, t: Throwable) {
                 //Toast.makeText(getApplicationContext(), "API Error", Toast.LENGTH_SHORT).show()

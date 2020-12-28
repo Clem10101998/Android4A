@@ -1,5 +1,7 @@
 package com.github.clem10101998.androidkotlin4a.presentation.main
 
+import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -28,12 +30,22 @@ class MainViewModel(
             //val debug = "debug"
             val loginStatus = if(user != null){
                 LoginSuccess(user.email)
+
             }else{
                 LoginError
             }
             withContext(Dispatchers.Main) {
                 loginLiveData.value = loginStatus
             }
+        }
+    }
+    fun OnClickedCreate(emailUser: String, password: String){
+        viewModelScope.launch(Dispatchers.IO) {
+            createUserUseCase.invoke(User(emailUser))
+            //createUserUseCase.invoke(User("test"))
+            //val user = getUserUseCase.invoke("test")
+            //val debug = "debug"
+
         }
     }
 }
