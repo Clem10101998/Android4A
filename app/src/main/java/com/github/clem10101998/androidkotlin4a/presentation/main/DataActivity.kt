@@ -16,18 +16,13 @@ import android.widget.Toast
 
 class DataActivity : AppCompatActivity() {
 
-    //private val valuesList = mutableListOf<String>()
+   private val BASE_URL = "https://ghibliapi.herokuapp.com/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data)
 
         makeApiCall()
-        // WatchedList()
-
-        /* recycler_view.setHasFixedSize(true)
-         recycler_view.adapter = ListAdapter(valuesList)
-         recycler_view.layoutManager = LinearLayoutManager(this)*/
 
     }
     private fun showList(values: List<Donnees>){
@@ -39,7 +34,7 @@ class DataActivity : AppCompatActivity() {
 
     private fun makeApiCall(){
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://ghibliapi.herokuapp.com/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -50,16 +45,11 @@ class DataActivity : AppCompatActivity() {
                 Toast.makeText(getApplicationContext(), "API Success", Toast.LENGTH_SHORT).show()
             }
             override fun onFailure(call: Call<List<Donnees>>, t: Throwable) {
-                //Toast.makeText(getApplicationContext(), "API Error", Toast.LENGTH_SHORT).show()
+                showError()
             }
         })
     }
-    /*private fun addElementList(values1: String){
-        valuesList.add(values1)
+    private fun showError(){
+        Toast.makeText(getApplicationContext(), "API Error", Toast.LENGTH_SHORT).show()
     }
-
-    private fun WatchedList(){
-        for(i in 0 until 100){
-            addElementList("Test $i")
-        }*/
 }

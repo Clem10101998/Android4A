@@ -55,8 +55,10 @@ class MainActivity : AppCompatActivity() {
             //            //startActivity(intent)
         }
         create_account_button.setOnClickListener{
-            mainViewModel.OnClickedCreate(login_edit.text.toString().trim(), password_edit.text.toString())
-            Toast.makeText(applicationContext, "Account well created", Toast.LENGTH_SHORT).show()
+            /*mainViewModel.OnClickedCreate(login_edit.text.toString().trim(), password_edit.text.toString())
+            Toast.makeText(applicationContext, "Account well created", Toast.LENGTH_SHORT).show()*/
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 }
