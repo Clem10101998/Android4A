@@ -19,7 +19,7 @@ Si le compte est inconnu, un deuxième écran donne la possibilité de créer so
 - Affichage d'une liste d'éléments
 - Appel WebService à une API Rest
 
-## Présentation visuelle des fonctionnalités de l'application :
+## Présentation des fonctionnalités de l'application :
 
 ### Premier écran
 #### Présentation d'un formulaire
