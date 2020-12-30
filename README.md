@@ -1,9 +1,9 @@
 # Projet 4A
-Réalisation d'une application présentant la liste des animés du studio Ghibli, réalisée par Clément Sorel (classe 43).
+Réalisation d'une application présentant la liste des animés du Studio Ghibli, réalisée par Clément Sorel (classe 43).
 
 ## Présentation
 Cette application a été codée en Kotlin. Elle affiche un premier écran sur lequel est présenté un formulaire, demandant à renseigner un Login et un mot de passe. 
-Si le compte est inconnu, un deuxième écran donne la possibilité de créer son compte. Une fois le compte enregistré, l'utilisateur peut se connecter et avoir enfin accès un troisième écran de bienvenue présentant un bouton pour accéder à liste des différents animés du studio Ghibli affichant : 
+Si le compte est inconnu, un deuxième écran donne la possibilité de créer son compte. Une fois le compte enregistré, l'utilisateur peut se connecter et avoir enfin accès à un troisième écran de bienvenue présentant un bouton pour accéder à liste des différents animés du Studio Ghibli affichant : 
 - Le titre du film
 - Le producteur
 
