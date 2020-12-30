@@ -17,10 +17,19 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         create_account_button.setOnClickListener {
-            mainViewModel.OnClickedCreate(login_edit.text.toString().trim(), password_edit.text.toString())
-            Toast.makeText(applicationContext, "Account well created", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            //mainViewModel.OnClickedCreate(login_edit.text.toString().trim(), password_edit.text.toString())
+            if (login_edit.text.toString().trim().isEmpty() ){
+                login_edit.error = "Login required"
+                Toast.makeText(applicationContext, "Please enter your login", Toast.LENGTH_SHORT).show()
+            }else if(password_edit.text.toString().trim().isEmpty()){
+                password_edit.error = "Password required"
+                Toast.makeText(applicationContext, "Please enter your password", Toast.LENGTH_SHORT).show()
+            }else{
+                mainViewModel.OnClickedCreate(login_edit.text.toString().trim(), password_edit.text.toString())
+                Toast.makeText(applicationContext, "Account well created", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }

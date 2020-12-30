@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 LoginError -> {
                     MaterialAlertDialogBuilder(this)
                         .setTitle("Error")
-                        .setMessage("Unknown account, please create you account")
+                        .setMessage("Unknown account, please create your account")
                         .setPositiveButton("OK") { dialog, which ->
                             dialog.dismiss()
                         }
@@ -43,14 +43,16 @@ class MainActivity : AppCompatActivity() {
             }
         })
         login_button.setOnClickListener{
-            mainViewModel.onClickedLogin(login_edit.text.toString().trim(), password_edit.text.toString())
-           /*if (login_edit.text.toString().trim().isEmpty()){
+            //mainViewModel.onClickedLogin(login_edit.text.toString().trim(), password_edit.text.toString())
+           if (login_edit.text.toString().trim().isEmpty()){
                 login_edit.error = "Email required"
                 Toast.makeText(applicationContext, "Please enter your email", Toast.LENGTH_SHORT).show()
             }else if(password_edit.text.toString().trim().isEmpty()){
                 password_edit.error = "Password required"
                 Toast.makeText(applicationContext, "Please enter your password", Toast.LENGTH_SHORT).show()
-            }*/
+            }else{
+               mainViewModel.onClickedLogin(login_edit.text.toString().trim(), password_edit.text.toString())
+           }
            // val intent = Intent(this, DataActivity::class.java)
             //            //startActivity(intent)
         }

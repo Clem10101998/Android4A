@@ -41,6 +41,7 @@ class MainViewModel(
     }
     fun OnClickedCreate(emailUser: String, password: String){
         viewModelScope.launch(Dispatchers.IO) {
+
             createUserUseCase.invoke(User(emailUser))
             //createUserUseCase.invoke(User("test"))
             //val user = getUserUseCase.invoke("test")
