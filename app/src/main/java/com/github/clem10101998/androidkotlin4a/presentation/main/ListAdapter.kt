@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.github.clem10101998.androidkotlin4a.R
+import com.github.clem10101998.androidkotlin4a.data.local.models.Donnees
 import kotlinx.android.synthetic.main.row_layout.view.*
 
 class ListAdapter(private val values: List<Donnees>) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {

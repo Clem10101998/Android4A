@@ -24,7 +24,7 @@ class MainViewModel(
     //Login -> Appel base de données : Success ou Error
     fun onClickedLogin(emailUser: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val user = getUserUseCase.invoke(emailUser)
+            val user = getUserUseCase.invoke(emailUser, password)
             //createUserUseCase.invoke(User("test"))
             //val user = getUserUseCase.invoke("test")
             //val debug = "debug"
@@ -41,12 +41,10 @@ class MainViewModel(
     }
     fun OnClickedCreate(emailUser: String, password: String){
         viewModelScope.launch(Dispatchers.IO) {
-
-            createUserUseCase.invoke(User(emailUser))
-            //createUserUseCase.invoke(User("test"))
-            //val user = getUserUseCase.invoke("test")
-            //val debug = "debug"
-
+                createUserUseCase.invoke(User(emailUser, password))
+                //createUserUseCase.invoke(User("test"))
+                //val user = getUserUseCase.invoke("test")
+                //val debug = "debug"
+            }
         }
     }
-}

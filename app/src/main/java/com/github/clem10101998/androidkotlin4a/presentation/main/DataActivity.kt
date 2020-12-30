@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.clem10101998.androidkotlin4a.R
-import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_data.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,6 +11,8 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import android.widget.Toast
+import com.github.clem10101998.androidkotlin4a.data.Api
+import com.github.clem10101998.androidkotlin4a.data.local.models.Donnees
 
 
 class DataActivity : AppCompatActivity() {
