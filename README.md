@@ -40,7 +40,7 @@ Une fois tous les champs renseignés, l'utilisateur est ensuite renvoyé sur le 
 
 <img src="Images_Appli/Check_List.png" width="200">
 
-L'utilisateur peut maintenant accéder à liste des films en cliquant sur le bouton "Movies".
+L'utilisateur peut maintenant accéder à liste des films en cliquant sur le bouton "MOVIES".
 
 ### Dernier écran
 #### Affichage de la liste des films
